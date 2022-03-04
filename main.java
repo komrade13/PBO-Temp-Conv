@@ -6,11 +6,10 @@
 package temperature.conversion;
 
 import java.util.Scanner;
-import temperature.conversion.Convert;
 
 /**
  *
- * @author alfaaa
+ * @author alfaa
  */
 public class Main {
 
@@ -24,7 +23,6 @@ public class Main {
 	{
 	    
              	    Scanner sc=new Scanner(System.in);
-                    Convert.c= new Convert();
                     
             System.out.println("[[Water Temperature Converter]]");
             System.out.println("--------------");
@@ -38,6 +36,10 @@ public class Main {
         public static void conv()
         {
             Scanner sc=new Scanner(System.in);
+            
+            double f=(9*c)/5+32;
+            double r=(4*c)/5;
+	    double k=c+273.15;
             
              System.out.println("Option");
                 System.out.println("------");
@@ -54,6 +56,14 @@ public class Main {
                   System.out.println("Temperature in Fahrenheit = "+f);
                   System.out.println("Temperature in Reamur = "+r);
                   System.out.println("Temperature in Kelvin = "+k);
+                              if (c<1) {
+                  waterState = "freezing";
+            }
+            else if (c>99) {
+                  waterState = "boiling";
+            }
+            else {
+                  waterState = "normal";}
                   System.out.println("Water condition is " +waterState);
                   conv();
 		  break;
